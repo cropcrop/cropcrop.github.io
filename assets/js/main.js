@@ -18,8 +18,7 @@ if ( document.getElementById('zebrafish') ) {
 }
 
 
-/* stellar */
-
+/* stellar 
 $(function () {
   $.stellar({
     hideDistantElements: false,
@@ -27,7 +26,7 @@ $(function () {
     horizontalScrolling: false,
     verticalScrolling: true,
   });
-});
+}); */
 var isMobile = {
     Android: function() {
         return navigator.userAgent.match(/Android/i);
