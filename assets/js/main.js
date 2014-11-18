@@ -152,8 +152,17 @@ $(function () {
 
 	$win.on('load', function(){      
       
-      $('#blog').delay(1).queue(function(next){
+      $('#blog').isotope();
+      
+      $('#blog').delay(200).queue(function(next){
         $(this).isotope();
+        console.log('isotope1');
+        next();
+      });
+      
+      $('#blog').delay(1000).queue(function(next){
+        $(this).isotope();
+        console.log('isotope2');
         next();
       });
 
