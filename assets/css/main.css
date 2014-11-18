@@ -164,7 +164,7 @@ canvas {
   line-height: 1.5em;
   font-family: 'Open Sans';
   font-weight: 400;
-  min-height: 400px;
+  min-height: 360px;
 }
 
 .blog .blog-item .blog-image {
@@ -581,6 +581,18 @@ a:active {
     margin-top: 3px;
     margin-bottom: 3px;
     width: 100%;
+  }
+
+  .blog .blog-item .blog-content {
+    padding: 20px 30px;
+  }
+
+  .blog-content h2 a {
+    font-size: 24px;
+  }
+
+  .blog-content .description {
+    font-size: 16px;
   }
 }
 @media only screen and (min-width: 768px) {
