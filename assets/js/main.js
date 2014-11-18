@@ -104,7 +104,7 @@ var isMobile = {
 
 
 
-/* stellar */
+/* stellar *//*
 jQuery(document).ready(function(){
     if( !isMobile.any() && $(document).width() > 480 ){
        $(function () {
@@ -116,7 +116,7 @@ jQuery(document).ready(function(){
         });
       });
     }
-});
+}); */
 
 
   
