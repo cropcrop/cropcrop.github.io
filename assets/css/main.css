@@ -11,7 +11,7 @@
 
 body,
 html {
-  background: #111;
+  background: #0F1215;
   margin: 0;
   color: #fff;
   height: 100%;
@@ -44,7 +44,7 @@ a:active {
 
 .background-particle {
   height: 100%;
-  background: #111;
+  background: #0F1215;
   position: relative;
 }
 
@@ -384,6 +384,21 @@ button {
   line-height: 1.4em;
   letter-spacing: 0.01em;
   word-spacing: 0.01em;
+}
+
+.delay-sm {
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+
+.delay-md {
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+}
+
+.delay-lg {
+  -webkit-animation-delay: 1.2s;
+  animation-delay: 1.2s;
 }
 
 /* Overwrite */
