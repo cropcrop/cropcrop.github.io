@@ -81,6 +81,8 @@ $(function () {
   });
 }); */
 (function ($) {
+  
+  $('[data-role="preload-entries"]').hide();
 
   var loaded = 0,
     queque = 6,
@@ -88,7 +90,7 @@ $(function () {
     amountNewEntries = 3;
 
   var $doc = $(document),
-    $win = $(window);
+      $win = $(window);
 
   $doc.on('ready', function () {
 
@@ -161,14 +163,18 @@ $(function () {
   function loadJson() {
 
     console.log('loadjson');
+    
+    
+    var jqxhr = $.getJSON( "data.json", function(data) {
+      
+      $('[data-role="preload-entries"]').show();
 
-    $.getJSON("data.json", function (data) {
-
-
-
-
+    })
+    .done(function(data) {
+      
+      $('[data-role="preload-entries"]').hide();
+      
       $.each(data.entries, function (key, val, count) {
-
 
         if (queque > 0 && key > loaded && key < loaded + amountNewEntries) {
 
@@ -188,13 +194,15 @@ $(function () {
           queque--;
         }
 
-
-
-
         /* //debug 
             console.log( key, title, excerpt, image, date, tags ); */
       });
-    });
+      
+    })
+    .fail(function() {
+      console.log( "error json" );
+  });
+
 
   }
 
@@ -328,6 +336,20 @@ jQuery(document).ready(function(){
     });
   });
 
+  
+  /* scroll load new entries */
+  
+  $(window).scroll(function(){
+    var scrollTop     = $(window).scrollTop(),
+    windowHeight = $(window).height(),
+    documentHeight = $(document).height(),
+    distanceBottom = documentHeight - windowHeight - scrollTop;
+    
+    if(distanceBottom < 200){
+      queque += (queque > 0) ? 0 : amountNewEntries;
+      loadJson();
+    }
+  });
 
   /* load new item blog */
 
@@ -357,7 +379,7 @@ jQuery(document).ready(function(){
     }
 
 
-    var template = $('<div class="col-md-4 col-sm-4 col-xs-12 item neuroscience consciousness ' + tagClasses + '">' +
+    var template = $('<div class="col-md-4 col-sm-4 col-xs-12 item ' + tagClasses + '">' +
       '<div class="blog-item animated fadeInUpBig">' +
       '<div class="blog-header">' +
       '<div class="blog-image">' +
