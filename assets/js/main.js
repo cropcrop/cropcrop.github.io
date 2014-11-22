@@ -100,6 +100,12 @@ $(function () {
         layoutMode: 'masonry',
         masonry: {
           columnWidth: '.item',
+        },
+        getSortData: {
+          date: function ($elem) {
+            console.log('asd', $($elem).find('.date').text() );
+            return Date.parse($($elem).find('.date').text());
+          }
         }
       });
 
@@ -199,6 +205,8 @@ $(function () {
         /* //debug 
             console.log( key, title, excerpt, image, date, tags ); */
       });
+      
+      /* $('#blog').isotope({ sortBy: 'date', sortAscending : false}); */
       
     })
     .fail(function() {
@@ -327,13 +335,11 @@ jQuery(document).ready(function(){
   $('#filters').on('click', 'li', function (event) {
     event.preventDefault();
 
-    console.log('asd')
-
     $('#filters > li').removeClass('active');
     $(this).addClass('active');
 
     var filterValue = $(this).attr('data-filter');
-    $('.blog').isotope({
+    $('#blog').isotope({
       filter: filterValue
     });
   });

@@ -45,6 +45,8 @@ a:active {
 .background-particle {
   height: 100%;
   background: #0F1215;
+  -webkit-background-size: cover;
+  background-position: center center;
   position: relative;
 }
 
